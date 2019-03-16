@@ -11,8 +11,8 @@ c.lineToPoint = (point) => {
     c.lineTo(point.x, point.y);
 };
 const createRandomPoint = () => {
-    let x = Math.random() * (window.innerWidth+1);
-    let y = Math.random() * (window.innerHeight+1);
+    let x = Math.random() * (canvas.width+1);
+    let y = Math.random() * (canvas.height+1);
     return {x, y};
 };
 const drawPolygon = (points) => {
@@ -22,7 +22,7 @@ const drawPolygon = (points) => {
         c.lineToPoint(point);
     })
     c.lineToPoint(points[0]);
-    c.fillStyle = "#FFEEAA"; // TODO: Get colour from pallette 
+    c.fillStyle = randomColor();
     c.fill();
 };
 const createRandomTriangle = () => {
@@ -30,4 +30,6 @@ const createRandomTriangle = () => {
     drawPolygon(points);
 };
 
-createRandomTriangle()
+for(let i = 0; i < 10; i++) {
+    createRandomTriangle()
+}
